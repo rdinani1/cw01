@@ -89,15 +89,12 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
           tabs: [for (final tab in tabs) Tab(text: tab)],
         ),
       ),
-
-      // keep BottomAppBar now so you don’t forget later
       bottomNavigationBar: const BottomAppBar(
         child: Padding(
           padding: EdgeInsets.all(12),
           child: Text('Bottom App Bar', textAlign: TextAlign.center),
         ),
       ),
-
       body: TabBarView(
         controller: _tabController,
         children: [
@@ -127,11 +124,37 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
             ),
           ),
 
-          // placeholders for now
+          // ✅ TAB 2 (NEW)
           Container(
             color: Colors.greenAccent.withOpacity(0.12),
-            child: const Center(child: Text('Tab 2 (placeholder)')),
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.network(
+                  'https://picsum.photos/200',
+                  width: 160,
+                  height: 160,
+                ),
+                const SizedBox(height: 18),
+                const TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Enter Name',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                const TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Enter Email',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ],
+            ),
           ),
+
+          // placeholders for now
           Container(
             color: Colors.orangeAccent.withOpacity(0.12),
             child: const Center(child: Text('Tab 3 (placeholder)')),
