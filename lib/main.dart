@@ -98,7 +98,7 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
       body: TabBarView(
         controller: _tabController,
         children: [
-        
+          // TAB 1
           Container(
             color: Colors.blueAccent.withOpacity(0.12),
             child: Center(
@@ -124,7 +124,7 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
             ),
           ),
 
-          
+          // TAB 2
           Container(
             color: Colors.greenAccent.withOpacity(0.12),
             padding: const EdgeInsets.all(20),
@@ -154,7 +154,7 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
             ),
           ),
 
-        
+          // TAB 3
           Container(
             color: Colors.orangeAccent.withOpacity(0.12),
             child: Center(
@@ -172,10 +172,38 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
             ),
           ),
 
-          // placeholder for now
+          // TAB 4: ListView + Cards
           Container(
             color: Colors.purpleAccent.withOpacity(0.12),
-            child: const Center(child: Text('Tab 4 (placeholder)')),
+            child: ListView(
+              padding: const EdgeInsets.all(12),
+              children: const [
+                Card(
+                  elevation: 4,
+                  child: ListTile(
+                    leading: Icon(Icons.star),
+                    title: Text('Item 1'),
+                    subtitle: Text('Details for Item 1'),
+                  ),
+                ),
+                Card(
+                  elevation: 4,
+                  child: ListTile(
+                    leading: Icon(Icons.star),
+                    title: Text('Item 2'),
+                    subtitle: Text('Details for Item 2'),
+                  ),
+                ),
+                Card(
+                  elevation: 4,
+                  child: ListTile(
+                    leading: Icon(Icons.star),
+                    title: Text('Item 3'),
+                    subtitle: Text('Details for Item 3'),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
