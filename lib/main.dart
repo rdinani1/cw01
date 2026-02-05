@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
-        length: 4, // ✅ now 4
+        length: 4,
         child: _TabsNonScrollableDemo(),
       ),
     );
@@ -41,9 +41,10 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
     super.initState();
     _tabController = TabController(
       initialIndex: 0,
-      length: 4, // ✅ now 4
+      length: 4,
       vsync: this,
     );
+
     _tabController.addListener(() {
       setState(() {
         tabIndex.value = _tabController.index;
@@ -89,21 +90,18 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
         ),
       ),
 
-      // ✅ Bottom App Bar required
+      // keep BottomAppBar now so you don’t forget later
       bottomNavigationBar: const BottomAppBar(
         child: Padding(
           padding: EdgeInsets.all(12),
-          child: Text(
-            'Bottom App Bar',
-            textAlign: TextAlign.center,
-          ),
+          child: Text('Bottom App Bar', textAlign: TextAlign.center),
         ),
       ),
 
       body: TabBarView(
         controller: _tabController,
         children: [
-          // ✅ TAB 1 (DONE): Text + Alert Dialog + page color
+          // ✅ TAB 1
           Container(
             color: Colors.blueAccent.withOpacity(0.12),
             child: Center(
@@ -111,8 +109,13 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Tab 1: Text + Alert Dialog',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    'Welcome to Tab 1',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                      letterSpacing: 1.2,
+                    ),
                   ),
                   const SizedBox(height: 16),
                   ElevatedButton(
@@ -124,19 +127,15 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
             ),
           ),
 
-          // Tab 2 placeholder (commit later)
+          // placeholders for now
           Container(
             color: Colors.greenAccent.withOpacity(0.12),
             child: const Center(child: Text('Tab 2 (placeholder)')),
           ),
-
-          // Tab 3 placeholder (commit later)
           Container(
             color: Colors.orangeAccent.withOpacity(0.12),
             child: const Center(child: Text('Tab 3 (placeholder)')),
           ),
-
-          // Tab 4 placeholder (commit later)
           Container(
             color: Colors.purpleAccent.withOpacity(0.12),
             child: const Center(child: Text('Tab 4 (placeholder)')),
